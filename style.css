@@ -11,7 +11,7 @@ body {
 /* HERO / banner */
 .hero {
   position: relative;
-  height: 220px;
+  height: 240px;
   background: linear-gradient(135deg, #111, #333);
 }
 
@@ -21,26 +21,25 @@ body {
   background: rgba(0,0,0,0.25);
 }
 
-/* Small centered circular avatar */
+/* Center circular image */
 .avatar {
   position: absolute;
   left: 50%;
-  bottom: -32px;            /* overlap amount (smaller) */
+  bottom: -55px;              /* overlaps into the section below */
   transform: translateX(-50%);
-  width: 72px;              /* ✅ smaller */
-  height: 72px;             /* ✅ smaller */
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #fff;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   z-index: 2;
 }
 
 /* Layout below hero */
 .layout {
   display: flex;
-  padding-top: 54px;        /* space for the overlapping avatar */
-  min-height: calc(100vh - 220px);
+  padding-top: 70px;          /* space for the overlapping avatar */
 }
 
 /* Sidebar */
@@ -49,6 +48,7 @@ body {
   background-color: #111;
   color: white;
   padding: 30px;
+  min-height: calc(100vh - 240px);
 }
 
 .sidebar h2 {
@@ -91,6 +91,7 @@ body {
 
   .sidebar {
     width: 100%;
+    min-height: auto;
   }
 
   .content {
