@@ -322,6 +322,37 @@
           </div>
         </div>
 
+
+      <!-- Card 9: OtoMix DJ Mixer -->
+      <div class="card" onclick="openModal('modal-9')">
+        <div class="card-img-wrap">
+          <img src="images/DJ1.png" alt="OtoMix DJ Mixer"
+              class="card-img" onerror="this.parentElement.classList.add('no-img')">
+          <div class="card-img-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+              <line x1="12" y1="2" x2="12" y2="6"/>
+              <line x1="12" y1="18" x2="12" y2="22"/>
+            </svg>
+            <span>Add Screenshot</span>
+          </div>
+          <div class="card-overlay"><span>View Details &rarr;</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">C++ &middot; JUCE &middot; OOP &middot; DSP</div>
+          <h3 class="card-title">OtoMix – DJ Mixer Application</h3>
+          <p class="card-desc">
+            Fully functional DJ mixer app built in C++ using the JUCE framework,
+            featuring multi-deck playback, hot cues, 3-band EQ, waveform zoom,
+            crossfader, and full JSON session persistence.
+          </p>
+          <button class="card-btn">View Project</button>
+        </div>
+      </div>
+
+
       </div>
     </section>
 
@@ -1083,6 +1114,158 @@
             <span class="tag">Windows Server 2016</span>
             <span class="tag">Remote Desktop (RDP)</span>
             <span class="tag">SQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal 9: OtoMix DJ Mixer -->
+  <div class="modal-backdrop" id="modal-9"
+      onclick="closeModalOnBackdrop(event,'modal-9')">
+    <div class="modal">
+      <button class="modal-close"
+              onclick="closeModal('modal-9')">&#x2715;</button>
+
+      <div class="modal-header">
+        <div class="modal-meta">
+          C++ &middot; JUCE Framework &middot; OOP &middot; DSP &middot; JSON
+        </div>
+        <h2 class="modal-title">OtoMix – DJ Mixer Application</h2>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-main" id="gallery-main-9">
+          <img src="images/DJ1.png" alt="OtoMix DJ Mixer"
+              class="gallery-img"
+              onerror="this.parentElement.classList.add('no-img-gallery')">
+          <div class="gallery-placeholder">
+            <p>&#128248; Add your project screenshot here</p>
+            <p class="hint">Upload <code>images/DJ1.png</code></p>
+          </div>
+          <button class="zoom-btn"
+                  onclick="openLightbox('images/DJ1.png','OtoMix DJ Mixer')">
+            <svg width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="11" y1="8" x2="11" y2="14"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+            Zoom
+          </button>
+        </div>
+
+        <div class="gallery-thumbs">
+          <img src="images/DJ1.png" alt="DJ Mixer – Decks Overview"
+              class="thumb active"
+              onclick="swapGallery(this,'gallery-main-9')">
+          <img src="images/DJ2.png" alt="DJ Mixer – Hot Cues"
+              class="thumb"
+              onclick="swapGallery(this,'gallery-main-9')">
+          <img src="images/DJ3.png" alt="DJ Mixer – Waveform Zoom"
+              class="thumb"
+              onclick="swapGallery(this,'gallery-main-9')">
+        </div>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="modal-section">
+          <h3>Overview</h3>
+          <p>
+            OtoMix is a fully functional DJ mixer application developed in C++
+            using the JUCE framework as part of the CM2005 Object-Oriented
+            Programming module at SIM University of London. Built on a Coursera
+            foundation and extended with professional-grade features inspired by
+            Serato and Rekordbox, the app demonstrates real-time audio processing,
+            modular OOP architecture, and persistent session management via JSON.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Key Features</h3>
+          <ul>
+            <li>
+              <strong>Multi-deck Simultaneous Playback</strong> — Two independent
+              audio decks with separate transport sources, volume, and speed
+              controls, combined via an audio mixer source for real-time output
+            </li>
+            <li>
+              <strong>3-Band Equaliser (EQ)</strong> — Real-time low, mid, and
+              high frequency control per deck using the JUCE DSP processor chain,
+              with EQ values persisted per track across sessions
+            </li>
+            <li>
+              <strong>8 Hot Cue Buttons per Deck</strong> — Shift-click to assign,
+              click to jump; cues light up bright orange when active and persist
+              per track in JSON — no cross-track bleed
+            </li>
+            <li>
+              <strong>Live Waveform Display with Zoom</strong> — Real-time
+              waveform visualisation with mouse-wheel zoom up to 30×, double-click
+              to reset, and hot cue markers rendered accurately at any zoom level
+            </li>
+            <li>
+              <strong>Crossfader</strong> — Dedicated crossfader slider for smooth
+              volume transitions between Deck A and Deck B, mirroring professional
+              DJ mixer layouts
+            </li>
+            <li>
+              <strong>Persistent Music Library</strong> — Drag-and-drop playlist
+              supporting multiple formats; auto-extracts track name, artist,
+              duration, and BPM; persists across sessions via structured JSON
+            </li>
+            <li>
+              <strong>BPM Visualisation</strong> — Displays BPM per track on the
+              playlist and deck header to assist beatmatching and tempo comparison;
+              designed for future auto-detection enhancement
+            </li>
+            <li>
+              <strong>Keyboard &amp; Mouse Shortcuts</strong> — Spacebar to
+              play/stop, mouse-wheel on sliders, double-click to reset zoom —
+              improving usability for live performance workflows
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Technical Highlights</h3>
+          <ul>
+            <li>
+              Modular OOP architecture — each deck, playlist, and EQ component
+              runs independently with no cross-component state leakage
+            </li>
+            <li>
+              JUCE DSP processor chain for real-time audio filtering without
+              interrupting playback
+            </li>
+            <li>
+              JSON-based persistence binding hot cues, EQ values, and playlist
+              data to each track's file path for reliable cross-session restore
+            </li>
+            <li>
+              Hot cue markers rendered correctly on the waveform at all zoom
+              levels, including dynamic recalculation on resize
+            </li>
+            <li>
+              Custom <code>DJLookAndFeel.h</code> header implementing a dark
+              DJ-themed UI consistent across all components
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Tools Used</h3>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">JUCE Framework</span>
+            <span class="tag">DSP Audio Processing</span>
+            <span class="tag">OOP</span>
+            <span class="tag">JSON</span>
+            <span class="tag">AudioTransportSource</span>
           </div>
         </div>
 
