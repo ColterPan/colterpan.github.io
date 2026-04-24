@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #111;
+  color: white;
+  padding: 30px;
+  height: 100vh;
+}
+
+.content {
+  padding: 40px;
+  max-width: 900px;
+}
+
+.project {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
