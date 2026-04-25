@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colter Pan | Portfolio</title>
-  <!-- Favicon - replace favicon.png with your generated icon -->
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Space Grotesk: modern techy font used throughout -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ========== NAVBAR ==========
-     Fixed at top. Logo "CP." links to hero.
-     Nav links scroll to each section.
-     Hamburger (.nav-toggle) shown on mobile. ========== -->
+<!-- ===== CUSTOM CURSOR: two-layer cursor (dot + ring) ===== -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <a href="#home" class="nav-logo">CP.</a>
   <ul class="nav-links">
@@ -28,65 +28,61 @@
     <li><a href="#certs">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <span></span><span></span><span></span>
-  </button>
+  <!-- Nav right: theme toggle + hamburger -->
+  <div class="nav-right">
+    <!-- Theme toggle: click to switch dark/light mode -->
+    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark mode">
+      <!-- Moon icon shown in dark mode -->
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <!-- Sun icon shown in light mode -->
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<!-- ========== HERO SECTION ==========
-     Full viewport height. Canvas fills the background with
-     physics balls. Text overlay sits on top. ========== -->
-<section id="home">
-  <!-- Physics canvas - JS draws animated glowing balls here -->
-  <canvas id="physics-canvas"></canvas>
+<!-- ===== SCROLL PROGRESS BAR: thin gradient line at top ===== -->
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
 
-  <!-- Centered hero text overlay -->
+<!-- ===== HERO SECTION ===== -->
+<section id="home">
+  <canvas id="physics-canvas"></canvas>
   <div class="hero-content">
     <span class="hero-greeting">Hello, World! &#128075;</span>
     <h1 class="hero-name">Colter Pan</h1>
-    <!-- Typing effect - JS fills span#typed-role with cycling roles -->
     <p class="hero-role">I&#39;m a <span id="typed-role"></span></p>
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">View My Work</a>
       <a href="#contact" class="btn-secondary">Get In Touch</a>
     </div>
   </div>
-
-  <!-- Animated scroll down indicator -->
   <div class="scroll-indicator">
     <span>scroll</span>
     <div class="scroll-arrow"></div>
   </div>
 </section>
 
-<!-- ========== ABOUT SECTION ==========
-     Profile photo + bio text + skills tags.
-     .fade-in elements animate on scroll (JS adds .visible). ========== -->
+<!-- ===== ABOUT SECTION ===== -->
 <section id="about" class="section">
   <span class="section-badge">About Me</span>
   <h2 class="section-title">Who I <span>Am</span></h2>
   <div class="section-line"></div>
-
-  <!-- Two-column grid: left = avatar, right = text -->
   <div class="about-grid fade-in">
-    <!-- Avatar with animated gradient ring -->
     <div class="avatar-wrap">
       <img class="avatar" src="images/Profile.jpg" alt="Colter Pan"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <!-- Fallback initials shown if profile image is missing -->
       <div class="avatar-placeholder">CP</div>
     </div>
-
     <div class="about-text-block">
       <p style="color:var(--text2);line-height:1.8;margin-bottom:1.25rem;">
         Data Analyst skilled in SQL, Python, and programming languages, with strong experience in Power BI,
         Excel, and Power Automate. Hands-on experience in data analytics, audit automation, and dashboard
         development &mdash; transforming complex datasets into meaningful insights and KPI frameworks.
         Familiar with AWS cloud concepts and data workflows, with the ability to build automated solutions
-        that improve data accuracy and operational efficiency. Strong ability to translate business
-        requirements into practical, data-driven solutions.
+        that improve data accuracy and operational efficiency.
       </p>
-      <!-- Contact info rows -->
       <div class="contact-row">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.92-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
         <span style="color:var(--text2);font-size:0.9rem;">+65 86923978</span>
@@ -95,7 +91,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         <span style="color:var(--text2);font-size:0.9rem;">colterpan123@gmail.com</span>
       </div>
-      <!-- Social links -->
       <div class="about-links">
         <a href="https://www.linkedin.com/in/colterpan/" target="_blank" class="social-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -108,8 +103,7 @@
       </div>
     </div>
   </div>
-
-  <!-- Skills tags grid -->
+  <!-- Skills tags -->
   <div class="skills-section fade-in">
     <p class="skills-label">Tools &amp; Skills</p>
     <div class="tags-grid">
@@ -120,24 +114,21 @@
       <span class="tag">AI Prompt Engineering</span><span class="tag">Full Stack Dev</span>
     </div>
   </div>
+  <!-- 3D Globe: drag to rotate the tech stack sphere -->
+  <div class="globe-section fade-in">
+    <p class="globe-label">Tech Stack Globe &mdash; drag to rotate</p>
+    <canvas id="globe-canvas"></canvas>
+  </div>
 </section>
-
-<!-- ========== EXPERIENCE SECTION ==========
-     Timeline layout. Each .timeline-item has a dot on the left line.
-     .fade-in triggers scroll animation per card. ========== -->
+<!-- ===== EXPERIENCE SECTION ===== -->
 <section id="experience" class="section">
   <span class="section-badge">Experience</span>
   <h2 class="section-title">Work <span>Experience</span></h2>
   <div class="section-line"></div>
   <div class="timeline">
-
-    <!-- Job 1: DKSH (Current) -->
     <div class="timeline-item fade-in">
       <div class="timeline-header">
-        <div>
-          <h3 class="timeline-role">Group Internal Audit &amp; Automation Intern</h3>
-          <p class="timeline-company">DKSH</p>
-        </div>
+        <div><h3 class="timeline-role">Group Internal Audit &amp; Automation Intern</h3><p class="timeline-company">DKSH</p></div>
         <span class="timeline-date">Jan 2026 &ndash; Present</span>
       </div>
       <ul class="timeline-list">
@@ -148,14 +139,9 @@
         <li>Built a country-level Power BI risk heatmap integrating multiple dashboards to support audit planning and risk prioritisation</li>
       </ul>
     </div>
-
-    <!-- Job 2: Edwards Lifesciences -->
     <div class="timeline-item fade-in">
       <div class="timeline-header">
-        <div>
-          <h3 class="timeline-role">Junior Data Analyst &ndash; APAC IT, Applications Team</h3>
-          <p class="timeline-company">Edwards Lifesciences</p>
-        </div>
+        <div><h3 class="timeline-role">Junior Data Analyst &ndash; APAC IT, Applications Team</h3><p class="timeline-company">Edwards Lifesciences</p></div>
         <span class="timeline-date">May 2022 &ndash; Jun 2023</span>
       </div>
       <ul class="timeline-list">
@@ -166,14 +152,9 @@
         <li>Evaluated supplier quality performance through defect analysis and reporting</li>
       </ul>
     </div>
-
-    <!-- Job 3: ST Engineering -->
     <div class="timeline-item fade-in">
       <div class="timeline-header">
-        <div>
-          <h3 class="timeline-role">Data Entry Assistant</h3>
-          <p class="timeline-company">ST Engineering</p>
-        </div>
+        <div><h3 class="timeline-role">Data Entry Assistant</h3><p class="timeline-company">ST Engineering</p></div>
         <span class="timeline-date">Aug 2025 &ndash; Oct 2025</span>
       </div>
       <ul class="timeline-list">
@@ -181,14 +162,9 @@
         <li>Supported reporting and audit processes through organised documentation maintenance</li>
       </ul>
     </div>
-
-    <!-- Job 4: Pannzz Store -->
     <div class="timeline-item fade-in">
       <div class="timeline-header">
-        <div>
-          <h3 class="timeline-role">Ecommerce Business Manager</h3>
-          <p class="timeline-company">Pannzz Store &middot; Self-employed</p>
-        </div>
+        <div><h3 class="timeline-role">Ecommerce Business Manager</h3><p class="timeline-company">Pannzz Store &middot; Self-employed</p></div>
         <span class="timeline-date">Jan 2018 &ndash; Present</span>
       </div>
       <ul class="timeline-list">
@@ -198,27 +174,29 @@
         <li>Streamlined inventory and fulfillment processes to reduce overhead and improve order turnaround time</li>
       </ul>
     </div>
-
   </div>
 </section>
-
-<!-- ========== PROJECTS SECTION ==========
-     3-column grid of project cards.
-     Each card has a 3D tilt effect (JS) and opens a modal on click. ========== -->
+<!-- ===== PROJECTS SECTION ===== -->
 <section id="projects" class="section">
   <span class="section-badge">Work</span>
   <h2 class="section-title">Featured <span>Projects</span></h2>
   <div class="section-line"></div>
+
+  <!-- Filter tabs: click to filter projects by category -->
+  <div class="filter-tabs">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="powerbi">Power BI</button>
+    <button class="filter-btn" data-filter="automation">Automation</button>
+    <button class="filter-btn" data-filter="python">Python</button>
+    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+  </div>
+
   <div class="projects-grid">
-    <!-- Card 1: AI Duplicate Claims Detection -->
-    <div class="card fade-in" onclick="openModal('modal-1')">
+    <!-- Card 1: Automation -->
+    <div class="card fade-in" data-category="automation" onclick="openModal('modal-1')">
       <div class="card-img-wrap">
-        <img src="images/EEC1.png" alt="AI Duplicate Claims Detection" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/EEC1.png" alt="AI Duplicate Claims Detection" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -228,15 +206,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 2: Audit Process Automation Flows -->
-    <div class="card fade-in" onclick="openModal('modal-2')">
+    <!-- Card 2: Automation -->
+    <div class="card fade-in" data-category="automation" onclick="openModal('modal-2')">
       <div class="card-img-wrap">
-        <img src="images/Automate1.png" alt="Audit Process Automation Flows" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/Automate1.png" alt="Audit Process Automation Flows" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -246,15 +220,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 3: PowerBI Country Risk Heatmap -->
-    <div class="card fade-in" onclick="openModal('modal-3')">
+    <!-- Card 3: Power BI -->
+    <div class="card fade-in" data-category="powerbi" onclick="openModal('modal-3')">
       <div class="card-img-wrap">
-        <img src="images/Heatmap1.png" alt="PowerBI Country Risk Heatmap" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/Heatmap1.png" alt="PowerBI Country Risk Heatmap" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -264,15 +234,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 4: PowerBI MES/Non-MES Dashboards -->
-    <div class="card fade-in" onclick="openModal('modal-4')">
+    <!-- Card 4: Power BI -->
+    <div class="card fade-in" data-category="powerbi" onclick="openModal('modal-4')">
       <div class="card-img-wrap">
-        <img src="images/MES.png" alt="PowerBI MES/Non-MES Dashboards" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/MES.png" alt="PowerBI MES Dashboards" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -282,15 +248,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 5: Pareto Chart &ndash; Top Defective Codes -->
-    <div class="card fade-in" onclick="openModal('modal-5')">
+    <!-- Card 5: Power BI -->
+    <div class="card fade-in" data-category="powerbi" onclick="openModal('modal-5')">
       <div class="card-img-wrap">
-        <img src="images/Pareto.png" alt="Pareto Chart &ndash; Top Defective Codes" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/Pareto.png" alt="Pareto Chart" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -300,15 +262,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 6: NutriBot &ndash; AI Health &amp; Nutrition App -->
-    <div class="card fade-in" onclick="openModal('modal-6')">
+    <!-- Card 6: Python -->
+    <div class="card fade-in" data-category="python" onclick="openModal('modal-6')">
       <div class="card-img-wrap">
-        <img src="images/Hackcathon1.png" alt="NutriBot &ndash; AI Health &amp; Nutrition App" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/Hackcathon1.png" alt="NutriBot" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -318,15 +276,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 7: BlackPay &ndash; Eco Banking Platform -->
-    <div class="card fade-in" onclick="openModal('modal-7')">
+    <!-- Card 7: Full Stack -->
+    <div class="card fade-in" data-category="fullstack" onclick="openModal('modal-7')">
       <div class="card-img-wrap">
-        <img src="images/Blackpay1.png" alt="BlackPay &ndash; Eco Banking Platform" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/Blackpay1.png" alt="BlackPay" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -336,15 +290,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 8: Citi Analytics Dashboard -->
-    <div class="card fade-in" onclick="openModal('modal-8')">
+    <!-- Card 8: Full Stack -->
+    <div class="card fade-in" data-category="fullstack" onclick="openModal('modal-8')">
       <div class="card-img-wrap">
-        <img src="images/CITI1.jpg" alt="Citi Analytics Dashboard" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/CITI1.jpg" alt="Citi Analytics Dashboard" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -354,15 +304,11 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-    <!-- Card 9: OtoMix &ndash; DJ Mixer Application -->
-    <div class="card fade-in" onclick="openModal('modal-9')">
+    <!-- Card 9: Full Stack / C++ -->
+    <div class="card fade-in" data-category="fullstack" onclick="openModal('modal-9')">
       <div class="card-img-wrap">
-        <img src="images/DJ1.png" alt="OtoMix &ndash; DJ Mixer Application" class="card-img"
-             onerror="this.parentElement.classList.add('no-img')">
-        <div class="card-img-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add Screenshot</span>
-        </div>
+        <img src="images/DJ1.png" alt="OtoMix DJ Mixer" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
         <div class="card-overlay"><span>View Details &rarr;</span></div>
       </div>
       <div class="card-body">
@@ -374,20 +320,15 @@
     </div>
   </div>
 </section>
-
-<!-- ========== EDUCATION SECTION ========== -->
+<!-- ===== EDUCATION ===== -->
 <section id="education" class="section">
   <span class="section-badge">Education</span>
   <h2 class="section-title">Academic <span>Background</span></h2>
   <div class="section-line"></div>
   <div class="timeline">
-
     <div class="timeline-item fade-in">
       <div class="timeline-header">
-        <div>
-          <h3 class="timeline-role">Bachelor of Science (Honours) in Computer Science</h3>
-          <p class="timeline-company">Singapore Institute of Management (SIM) &ndash; University of London</p>
-        </div>
+        <div><h3 class="timeline-role">Bachelor of Science (Honours) in Computer Science</h3><p class="timeline-company">Singapore Institute of Management (SIM) &ndash; University of London</p></div>
         <span class="timeline-date">Oct 2025 &ndash; Sep 2027</span>
       </div>
       <ul class="timeline-list">
@@ -395,13 +336,9 @@
         <li>Activities: UOL CS Hackathon 2025</li>
       </ul>
     </div>
-
     <div class="timeline-item fade-in">
       <div class="timeline-header">
-        <div>
-          <h3 class="timeline-role">Diploma in Business and Financial Technology</h3>
-          <p class="timeline-company">Nanyang Polytechnic</p>
-        </div>
+        <div><h3 class="timeline-role">Diploma in Business and Financial Technology</h3><p class="timeline-company">Nanyang Polytechnic</p></div>
         <span class="timeline-date">Jan 2020 &ndash; May 2023</span>
       </div>
       <ul class="timeline-list">
@@ -409,586 +346,347 @@
         <li>Activities: Basketball Club, Live Audio Club, DragonBoat Club (2nd Runner Up), Kickboxing Club</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<!-- ========== CERTIFICATES SECTION ========== -->
+<!-- ===== CERTIFICATES ===== -->
 <section id="certs" class="section">
   <span class="section-badge">Credentials</span>
   <h2 class="section-title">Licences &amp; <span>Certificates</span></h2>
   <div class="section-line"></div>
   <div class="certs-grid">
-
-    <div class="cert-card fade-in">
-      <div class="cert-year">2026</div>
-      <div class="cert-info">
-        <h4 class="cert-title">AWS Cloud Practitioner Essentials</h4>
-        <p class="cert-issuer">Amazon Web Services (AWS)</p>
-      </div>
-    </div>
-
-    <div class="cert-card fade-in">
-      <div class="cert-year">2025</div>
-      <div class="cert-info">
-        <h4 class="cert-title">AWS Academy Graduate &ndash; Machine Learning Foundations</h4>
-        <p class="cert-issuer">Amazon Web Services (AWS)</p>
-      </div>
-    </div>
-
-    <div class="cert-card fade-in">
-      <div class="cert-year">2024</div>
-      <div class="cert-info">
-        <h4 class="cert-title">Demystifying Artificial Intelligence: Understanding Machine Learning</h4>
-        <p class="cert-issuer">Online Learning Platform</p>
-      </div>
-    </div>
-
-    <div class="cert-card fade-in">
-      <div class="cert-year">2024</div>
-      <div class="cert-info">
-        <h4 class="cert-title">Google Analytics for Beginners</h4>
-        <p class="cert-issuer">Google</p>
-      </div>
-    </div>
-
-    <div class="cert-card fade-in">
-      <div class="cert-year">2022</div>
-      <div class="cert-info">
-        <h4 class="cert-title">Google Data Analytics Professional Certificate</h4>
-        <p class="cert-issuer">Google / Coursera</p>
-      </div>
-    </div>
-
-    <div class="cert-card fade-in">
-      <div class="cert-year">2021</div>
-      <div class="cert-info">
-        <h4 class="cert-title">IBM Blockchain Essentials V2</h4>
-        <p class="cert-issuer">IBM</p>
-      </div>
-    </div>
-
+    <div class="cert-card fade-in"><div class="cert-year">2026</div><div class="cert-info"><h4 class="cert-title">AWS Cloud Practitioner Essentials</h4><p class="cert-issuer">Amazon Web Services (AWS)</p></div></div>
+    <div class="cert-card fade-in"><div class="cert-year">2025</div><div class="cert-info"><h4 class="cert-title">AWS Academy Graduate &ndash; Machine Learning Foundations</h4><p class="cert-issuer">Amazon Web Services (AWS)</p></div></div>
+    <div class="cert-card fade-in"><div class="cert-year">2024</div><div class="cert-info"><h4 class="cert-title">Demystifying Artificial Intelligence: Understanding Machine Learning</h4><p class="cert-issuer">Online Learning Platform</p></div></div>
+    <div class="cert-card fade-in"><div class="cert-year">2024</div><div class="cert-info"><h4 class="cert-title">Google Analytics for Beginners</h4><p class="cert-issuer">Google</p></div></div>
+    <div class="cert-card fade-in"><div class="cert-year">2022</div><div class="cert-info"><h4 class="cert-title">Google Data Analytics Professional Certificate</h4><p class="cert-issuer">Google / Coursera</p></div></div>
+    <div class="cert-card fade-in"><div class="cert-year">2021</div><div class="cert-info"><h4 class="cert-title">IBM Blockchain Essentials V2</h4><p class="cert-issuer">IBM</p></div></div>
   </div>
 </section>
 
-<!-- ========== CONTACT SECTION ========== -->
+<!-- ===== CONTACT ===== -->
 <section id="contact" class="section">
   <span class="section-badge">Contact</span>
   <h2 class="section-title">Get In <span>Touch</span></h2>
   <div class="section-line"></div>
-  <p style="color:var(--text2);margin-bottom:2rem;max-width:500px;">
-    Open to internship opportunities, collaborations, and interesting projects. Feel free to reach out!
-  </p>
+  <p style="color:var(--text2);margin-bottom:2rem;max-width:500px;">Open to internship opportunities, collaborations, and interesting projects. Feel free to reach out!</p>
   <div class="contact-grid">
-
     <a href="mailto:colterpan123@gmail.com" class="contact-card fade-in">
-      <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </div>
-      <div>
-        <p class="contact-label">Email</p>
-        <p class="contact-value">colterpan123@gmail.com</p>
-      </div>
+      <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><p class="contact-label">Email</p><p class="contact-value">colterpan123@gmail.com</p></div>
     </a>
-
     <a href="tel:+6586923978" class="contact-card fade-in">
-      <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.92-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
-      </div>
-      <div>
-        <p class="contact-label">Phone</p>
-        <p class="contact-value">+65 86923978</p>
-      </div>
+      <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.92-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div>
+      <div><p class="contact-label">Phone</p><p class="contact-value">+65 86923978</p></div>
     </a>
-
     <a href="https://www.linkedin.com/in/colterpan/" target="_blank" rel="noopener" class="contact-card fade-in">
-      <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      </div>
-      <div>
-        <p class="contact-label">LinkedIn</p>
-        <p class="contact-value">/in/colterpan</p>
-      </div>
+      <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
+      <div><p class="contact-label">LinkedIn</p><p class="contact-value">/in/colterpan</p></div>
     </a>
-
     <a href="https://github.com/ColterPan" target="_blank" rel="noopener" class="contact-card fade-in">
-      <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-      </div>
-      <div>
-        <p class="contact-label">GitHub</p>
-        <p class="contact-value">github.com/ColterPan</p>
-      </div>
+      <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+      <div><p class="contact-label">GitHub</p><p class="contact-value">github.com/ColterPan</p></div>
     </a>
-
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
-<footer>
-  Built with <span>&#9829;</span> by <span>Colter Pan</span> &middot; 2026
-</footer>
-
-<!-- ========== MODALS ========== -->
-
+<footer>Built with <span>&#9829;</span> by <span>Colter Pan</span> &middot; 2026</footer>
+<!-- ===== MODALS ===== -->
 <!-- Modal 1: AI Duplicate Claims Detection -->
 <div class="modal-backdrop" id="modal-1" onclick="closeModalOnBackdrop(event,'modal-1')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-1')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Power Automate &middot; AI Builder</div>
-      <h2 class="modal-title">AI Duplicate Claims Detection</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Power Automate &middot; AI Builder</div><h2 class="modal-title">AI Duplicate Claims Detection</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-1">
-        <img src="images/EEC1.png" alt="AI Duplicate Claims Detection" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/EEC1.png</code></p>
-        </div>
+        <img src="images/EEC1.png" alt="AI Duplicate Claims Detection" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/EEC1.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/EEC1.png','AI Duplicate Claims Detection')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/EEC1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-1')">
-          <img src="images/EEC2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-1')">
-          <img src="images/EEC3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-1')">
-          <img src="images/EEC4.png" alt="thumb4" class="thumb" onclick="swapGallery(this,'gallery-main-1')">
+        <img src="images/EEC1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-1')">
+        <img src="images/EEC2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-1')">
+        <img src="images/EEC3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-1')">
+        <img src="images/EEC4.png" alt="thumb4" class="thumb" onclick="swapGallery(this,'gallery-main-1')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>Developed an AI-assisted automation solution at DKSH to detect duplicate Employee Expense Claims (EEC). The system combines rule-based logic with AI Builder receipt comparison to flag potentially fraudulent or erroneous duplicate submissions before reimbursement processing.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
+      <div class="modal-section"><h3>Overview</h3><p>Developed an AI-assisted automation solution at DKSH to detect duplicate Employee Expense Claims (EEC). The system combines rule-based logic with AI Builder receipt comparison to flag potentially fraudulent submissions before reimbursement processing.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
           <li>AI Builder model for receipt image comparison</li>
           <li>Rule-based logic for claim field deduplication (amount, date, merchant)</li>
           <li>Automated flagging and escalation notifications via Power Automate</li>
           <li>SharePoint integration for full audit trail storage</li>
           <li>Reduces manual review effort and strengthens audit controls</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Power Automate</span>          <span class="tag">AI Builder</span>          <span class="tag">SharePoint</span>          <span class="tag">Excel</span></div>
-      </div>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Power Automate</span><span class="tag">AI Builder</span><span class="tag">SharePoint</span><span class="tag">Excel</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 2: Audit Process Automation Flows -->
 <div class="modal-backdrop" id="modal-2" onclick="closeModalOnBackdrop(event,'modal-2')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-2')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Power Automate &middot; SharePoint</div>
-      <h2 class="modal-title">Audit Process Automation Flows</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Power Automate &middot; SharePoint</div><h2 class="modal-title">Audit Process Automation Flows</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-2">
-        <img src="images/Automate1.png" alt="Audit Process Automation Flows" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/Automate1.png</code></p>
-        </div>
+        <img src="images/Automate1.png" alt="Audit Process Automation Flows" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Automate1.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/Automate1.png','Audit Process Automation Flows')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/Automate1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-2')">
-          <img src="images/Automate2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
-          <img src="images/Automate3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
-          <img src="images/Automate4.png" alt="thumb4" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
-          <img src="images/Automate5.png" alt="thumb5" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
+        <img src="images/Automate1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-2')">
+        <img src="images/Automate2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
+        <img src="images/Automate3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
+        <img src="images/Automate4.png" alt="thumb4" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
+        <img src="images/Automate5.png" alt="thumb5" class="thumb" onclick="swapGallery(this,'gallery-main-2')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>Designed and implemented end-to-end Power Automate workflows at DKSH supporting audit analytics, process automation, and data validation. The solution automates extraction, structuring, and storage of audit documents into SharePoint — improving traceability and significantly reducing manual processing effort.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
+      <div class="modal-section"><h3>Overview</h3><p>Designed and implemented end-to-end Power Automate workflows at DKSH supporting audit analytics, process automation, and data validation. Automates extraction, structuring, and storage of audit documents into SharePoint.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
           <li>Automated document extraction from emails and PDFs using AI Builder</li>
           <li>Structured data population into SharePoint tracking lists</li>
           <li>Notification and escalation flows for overdue audit actions</li>
           <li>Error handling and exception logging throughout the pipeline</li>
           <li>TOR automation combining Power Automate Desktop and Cloud flows</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Power Automate</span>          <span class="tag">SharePoint</span>          <span class="tag">AI Builder</span>          <span class="tag">Outlook</span>          <span class="tag">Power Automate Desktop</span></div>
-      </div>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">AI Builder</span><span class="tag">Outlook</span><span class="tag">Power Automate Desktop</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 3: Project Optimus &ndash; GIA Country Risk Heatmap -->
 <div class="modal-backdrop" id="modal-3" onclick="closeModalOnBackdrop(event,'modal-3')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-3')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Power BI &middot; DAX &middot; SharePoint</div>
-      <h2 class="modal-title">Project Optimus &ndash; GIA Country Risk Heatmap</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Power BI &middot; DAX &middot; SharePoint</div><h2 class="modal-title">Project Optimus &ndash; GIA Country Risk Heatmap</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-3">
-        <img src="images/Heatmap1.png" alt="Project Optimus &ndash; GIA Country Risk Heatmap" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/Heatmap1.png</code></p>
-        </div>
+        <img src="images/Heatmap1.png" alt="Project Optimus &ndash; GIA Country Risk Heatmap" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Heatmap1.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/Heatmap1.png','Project Optimus &ndash; GIA Country Risk Heatmap')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/Heatmap1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-3')">
+        <img src="images/Heatmap1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-3')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>Designed and built a country-level audit risk heatmap in Power BI as part of Project Optimus 2 at DKSH Group Internal Audit (GIA). The dashboard gives management a single consolidated view of Red / Amber / Green risk status across countries and key business processes — replacing manual, once or twice yearly dashboard reviews with a periodic, data-driven risk scanning tool.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
-          <li>RAG (Red/Amber/Green) risk logic across Finance, Commercial, Supply Chain, Procurement, and HR KPIs</li>
-          <li>KPIs sourced entirely from existing DKSH dashboards — no raw data duplication</li>
-          <li>Advanced DAX measures with virtual relationships (TREATAS) for correct country-level context</li>
-          <li>Drill-through navigation from heatmap cells to underlying source dashboards</li>
-          <li>Parameter-driven threshold design, ready for SharePoint externalisation</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Power BI</span>          <span class="tag">DAX</span>          <span class="tag">Power Query</span>          <span class="tag">SharePoint</span>          <span class="tag">Excel</span>          <span class="tag">TREATAS</span></div>
-      </div>
+      <div class="modal-section"><h3>Overview</h3><p>Designed and built a country-level audit risk heatmap in Power BI as part of Project Optimus 2 at DKSH Group Internal Audit. Gives management a consolidated RAG view across countries and key business processes.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
+          <li>RAG risk logic across Finance, Commercial, Supply Chain, Procurement, and HR KPIs</li>
+          <li>KPIs sourced from existing DKSH dashboards with no raw data duplication</li>
+          <li>Advanced DAX with TREATAS virtual relationships for correct country context</li>
+          <li>Drill-through navigation from heatmap cells to source dashboards</li>
+          <li>Parameter-driven thresholds ready for SharePoint externalisation</li>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SharePoint</span><span class="tag">Excel</span><span class="tag">TREATAS</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 4: PowerBI MES/Non-MES Dashboards -->
 <div class="modal-backdrop" id="modal-4" onclick="closeModalOnBackdrop(event,'modal-4')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-4')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Power BI &middot; SQL</div>
-      <h2 class="modal-title">PowerBI MES/Non-MES Dashboards</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Power BI &middot; SQL</div><h2 class="modal-title">PowerBI MES/Non-MES Dashboards</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-4">
-        <img src="images/MES.png" alt="PowerBI MES/Non-MES Dashboards" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/MES.png</code></p>
-        </div>
+        <img src="images/MES.png" alt="PowerBI MES/Non-MES Dashboards" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/MES.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/MES.png','PowerBI MES/Non-MES Dashboards')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/MES.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-4')">
+        <img src="images/MES.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-4')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>Developed Power BI dashboards connected to ERP (JDE EnterpriseOne) and MES systems at Edwards Lifesciences to visualize production KPIs including cycle time, final yield, and scrap rates. The dashboards enabled manufacturing and business excellence teams to make data-driven decisions quickly.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
+      <div class="modal-section"><h3>Overview</h3><p>Developed Power BI dashboards connected to ERP (JDE EnterpriseOne) and MES systems at Edwards Lifesciences to visualize production KPIs including cycle time, yield, and scrap rates.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
           <li>Real-time production KPI monitoring (cycle time, yield, scrap)</li>
           <li>ERP and MES data integration via optimized SQL queries</li>
           <li>Cross-functional reporting for manufacturing and tissue processing teams</li>
           <li>Drill-down by product line, date range, and operational area</li>
           <li>Delivered actionable insights leading to measurable process improvements</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Power BI</span>          <span class="tag">SQL</span>          <span class="tag">DAX</span>          <span class="tag">JDE EnterpriseOne</span>          <span class="tag">Excel</span></div>
-      </div>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span><span class="tag">JDE EnterpriseOne</span><span class="tag">Excel</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 5: Pareto Chart &ndash; Top Defective Codes -->
 <div class="modal-backdrop" id="modal-5" onclick="closeModalOnBackdrop(event,'modal-5')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-5')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Power BI &middot; SQL</div>
-      <h2 class="modal-title">Pareto Chart &ndash; Top Defective Codes</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Power BI &middot; SQL</div><h2 class="modal-title">Pareto Chart &ndash; Top Defective Codes</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-5">
-        <img src="images/Pareto.png" alt="Pareto Chart &ndash; Top Defective Codes" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/Pareto.png</code></p>
-        </div>
+        <img src="images/Pareto.png" alt="Pareto Chart &ndash; Top Defective Codes" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Pareto.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/Pareto.png','Pareto Chart &ndash; Top Defective Codes')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/Pareto.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-5')">
+        <img src="images/Pareto.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-5')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>Supplier quality defect analysis at Edwards Lifesciences using Pareto charts in Power BI to identify and rank the top defective material codes from supplier deliveries. The analysis directly supported procurement decisions and supplier performance reviews, receiving positive feedback from senior engineers.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
+      <div class="modal-section"><h3>Overview</h3><p>Supplier quality defect analysis at Edwards Lifesciences using Pareto charts in Power BI to identify top defective material codes from supplier deliveries. Received positive feedback from senior engineers.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
           <li>Pareto analysis of top defect codes by frequency and severity</li>
-          <li>Supplier performance benchmarking and trend tracking over time</li>
+          <li>Supplier performance benchmarking and trend tracking</li>
           <li>SQL-based data extraction from ERP procurement modules</li>
           <li>Enabled targeted supplier quality improvement actions</li>
           <li>Recognised by senior engineers for clarity and actionability</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Power BI</span>          <span class="tag">SQL</span>          <span class="tag">DAX</span>          <span class="tag">Excel</span></div>
-      </div>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span><span class="tag">Excel</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 6: NutriBot &ndash; AI Health &amp; Nutrition App -->
 <div class="modal-backdrop" id="modal-6" onclick="closeModalOnBackdrop(event,'modal-6')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-6')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Python &middot; Flask &middot; OpenAI &middot; Full Stack</div>
-      <h2 class="modal-title">NutriBot &ndash; AI Health &amp; Nutrition App</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Python &middot; Flask &middot; OpenAI &middot; Full Stack</div><h2 class="modal-title">NutriBot &ndash; AI Health &amp; Nutrition App</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-6">
-        <img src="images/Hackcathon1.png" alt="NutriBot &ndash; AI Health &amp; Nutrition App" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/Hackcathon1.png</code></p>
-        </div>
+        <img src="images/Hackcathon1.png" alt="NutriBot &ndash; AI Health &amp; Nutrition App" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Hackcathon1.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/Hackcathon1.png','NutriBot &ndash; AI Health &amp; Nutrition App')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/Hackcathon1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-6')">
-          <img src="images/Hackcathon2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-6')">
-          <img src="images/Hackcathon3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-6')">
+        <img src="images/Hackcathon1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-6')">
+        <img src="images/Hackcathon2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-6')">
+        <img src="images/Hackcathon3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-6')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>NutriBot is a full-stack AI-powered health and nutrition web application built for the UOL Computer Science Hackathon 2025 at SIM. The app helps users bust common health myths, plan personalised weight loss or gain programmes, track their weight journey, and get healthier through AI-driven nutrition advice and smart pantry management.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
+      <div class="modal-section"><h3>Overview</h3><p>Full-stack AI-powered health and nutrition web app built for the UOL CS Hackathon 2025 at SIM. Helps users bust health myths, plan weight programmes, track progress, and get personalised AI nutrition advice.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
           <li>GPT-3.5 powered AI Nutrition Chatbot with personalised profile-aware responses</li>
-          <li>Health Myth Busting — evidence-based AI responses to common health questions</li>
-          <li>Weight Loss/Gain Programme with BMI tracking, milestone badges, and progress charts</li>
+          <li>Health Myth Busting with evidence-based AI responses</li>
+          <li>Weight Loss/Gain Programme with BMI tracking and milestone badges</li>
           <li>AI Food Image Detection using GPT-4o Vision to auto-detect ingredients</li>
-          <li>Smart Recipe Generator from pantry ingredients with full nutritional breakdown</li>
-          <li>Full user auth system with JSON-based persistent storage</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Python</span>          <span class="tag">Flask</span>          <span class="tag">OpenAI GPT-3.5</span>          <span class="tag">GPT-4o Vision</span>          <span class="tag">HTML/CSS/JS</span>          <span class="tag">NLTK</span>          <span class="tag">Chart.js</span></div>
-      </div>
+          <li>Smart Recipe Generator with full nutritional breakdown</li>
+          <li>Full user auth with JSON-based persistent storage</li>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">OpenAI GPT-3.5</span><span class="tag">GPT-4o Vision</span><span class="tag">HTML/CSS/JS</span><span class="tag">NLTK</span><span class="tag">Chart.js</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 7: BlackPay &ndash; Eco Banking &amp; Sustainability Platform -->
 <div class="modal-backdrop" id="modal-7" onclick="closeModalOnBackdrop(event,'modal-7')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-7')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Node.js &middot; Express.js &middot; MySQL &middot; Sequelize</div>
-      <h2 class="modal-title">BlackPay &ndash; Eco Banking &amp; Sustainability Platform</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Node.js &middot; Express.js &middot; MySQL &middot; Sequelize</div><h2 class="modal-title">BlackPay &ndash; Eco Banking &amp; Sustainability Platform</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-7">
-        <img src="images/Blackpay1.png" alt="BlackPay &ndash; Eco Banking &amp; Sustainability Platform" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/Blackpay1.png</code></p>
-        </div>
+        <img src="images/Blackpay1.png" alt="BlackPay &ndash; Eco Banking &amp; Sustainability Platform" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Blackpay1.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/Blackpay1.png','BlackPay &ndash; Eco Banking &amp; Sustainability Platform')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/Blackpay1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-7')">
-          <img src="images/Blackpay2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
-          <img src="images/Blackpay3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
-          <img src="images/Blackpay4.png" alt="thumb4" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
-          <img src="images/Blackpay5.png" alt="thumb5" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
+        <img src="images/Blackpay1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-7')">
+        <img src="images/Blackpay2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
+        <img src="images/Blackpay3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
+        <img src="images/Blackpay4.png" alt="thumb4" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
+        <img src="images/Blackpay5.png" alt="thumb5" class="thumb" onclick="swapGallery(this,'gallery-main-7')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>BlackPay is a full-stack web banking platform built to drive sustainability outcomes. It combines eco-product shopping, green transport rewards, donation campaigns, a digital card application, and a rewards redemption system — all backed by MySQL with Sequelize ORM, Passport.js authentication, and session-based user management.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
-          <li>Eco-Product Shop: full product CRUD, shopping cart, checkout, Eco Points per purchase</li>
-          <li>Rewards System: users earn and redeem eco-points with automated Nodemailer email confirmation</li>
-          <li>Donation Campaigns: users browse and donate to environmental campaigns</li>
+      <div class="modal-section"><h3>Overview</h3><p>Full-stack web banking platform combining eco-product shopping, green rewards, donation campaigns, digital card application, and rewards redemption — backed by MySQL, Sequelize ORM, and Passport.js.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
+          <li>Eco-Product Shop: full CRUD, cart, checkout, Eco Points per purchase</li>
+          <li>Rewards System with automated Nodemailer email confirmation</li>
+          <li>Donation Campaigns with admin progress tracking</li>
           <li>Digital Card Application with admin approval management</li>
-          <li>User Auth & Role System: Passport.js supporting User, Admin, and Company roles</li>
-          <li>Environmental Blog & Events with user registration</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Node.js</span>          <span class="tag">Express.js</span>          <span class="tag">MySQL</span>          <span class="tag">Sequelize ORM</span>          <span class="tag">Handlebars</span>          <span class="tag">Passport.js</span>          <span class="tag">Nodemailer</span>          <span class="tag">Bootstrap</span></div>
-      </div>
+          <li>User Auth: Passport.js with User, Admin, and Company roles</li>
+          <li>Environmental Blog and Events with user registration</li>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">MySQL</span><span class="tag">Sequelize ORM</span><span class="tag">Handlebars</span><span class="tag">Passport.js</span><span class="tag">Nodemailer</span><span class="tag">Bootstrap</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 8: Citi Analytics Dashboard with Tableau Server -->
 <div class="modal-backdrop" id="modal-8" onclick="closeModalOnBackdrop(event,'modal-8')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-8')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">Tableau &middot; MySQL &middot; Windows Server</div>
-      <h2 class="modal-title">Citi Analytics Dashboard with Tableau Server</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">Tableau &middot; MySQL &middot; Windows Server</div><h2 class="modal-title">Citi Analytics Dashboard with Tableau Server</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-8">
-        <img src="images/CITI1.jpg" alt="Citi Analytics Dashboard with Tableau Server" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/CITI1.jpg</code></p>
-        </div>
+        <img src="images/CITI1.jpg" alt="Citi Analytics Dashboard with Tableau Server" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/CITI1.jpg</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/CITI1.jpg','Citi Analytics Dashboard with Tableau Server')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/CITI1.jpg" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-8')">
-          <img src="images/CITI2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-8')">
+        <img src="images/CITI1.jpg" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-8')">
+        <img src="images/CITI2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-8')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>Final Year Project at Nanyang Polytechnic (2022) for CITI Analytics. Set up a centralised enterprise Tableau Server architecture for NYP's Tech-X Centre — replacing a static single-laptop dashboard with a fully live, server-connected solution backed by MySQL, where data updates reflect automatically across all published dashboards in real time.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
+      <div class="modal-section"><h3>Overview</h3><p>Final Year Project at NYP (2022) for CITI Analytics. Set up centralised Tableau Server on Windows VMs — replacing a static laptop dashboard with a fully live MySQL-connected solution where all changes sync in real time.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
           <li>Deployed Tableau Server on two Windows Server 2016 VMs (Dev & Production)</li>
-          <li>Configured MySQL as live backend database, replacing static embedded data sources</li>
-          <li>Published dashboards with live MySQL connections — changes sync automatically</li>
-          <li>Configured Remote Desktop (RDP) access and managed server admin accounts</li>
-          <li>Resolved Tableau Server version compatibility issues and documented full setup guide</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">Tableau Server</span>          <span class="tag">Tableau Desktop</span>          <span class="tag">MySQL</span>          <span class="tag">Windows Server 2016</span>          <span class="tag">Remote Desktop (RDP)</span>          <span class="tag">SQL</span></div>
-      </div>
+          <li>Configured MySQL as live backend replacing static embedded data sources</li>
+          <li>Published dashboards with live MySQL connections syncing automatically</li>
+          <li>Configured RDP access and managed server admin accounts</li>
+          <li>Resolved version compatibility issues and documented full setup guide</li>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Tableau Server</span><span class="tag">Tableau Desktop</span><span class="tag">MySQL</span><span class="tag">Windows Server 2016</span><span class="tag">Remote Desktop (RDP)</span><span class="tag">SQL</span></div></div>
     </div>
   </div>
 </div>
-
 <!-- Modal 9: OtoMix &ndash; DJ Mixer Application -->
 <div class="modal-backdrop" id="modal-9" onclick="closeModalOnBackdrop(event,'modal-9')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-9')">&#x2715;</button>
-    <div class="modal-header">
-      <div class="modal-meta">C++ &middot; JUCE Framework &middot; OOP &middot; DSP &middot; JSON</div>
-      <h2 class="modal-title">OtoMix &ndash; DJ Mixer Application</h2>
-    </div>
+    <div class="modal-header"><div class="modal-meta">C++ &middot; JUCE Framework &middot; OOP &middot; DSP &middot; JSON</div><h2 class="modal-title">OtoMix &ndash; DJ Mixer Application</h2></div>
     <div class="gallery">
       <div class="gallery-main" id="gallery-main-9">
-        <img src="images/DJ1.png" alt="OtoMix &ndash; DJ Mixer Application" class="gallery-img"
-             onerror="this.parentElement.classList.add('no-img-gallery')">
-        <div class="gallery-placeholder">
-          <p>&#128248; Add your project screenshot here</p>
-          <p class="hint">Upload <code>images/DJ1.png</code></p>
-        </div>
+        <img src="images/DJ1.png" alt="OtoMix &ndash; DJ Mixer Application" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/DJ1.png</code></p></div>
         <button class="zoom-btn" onclick="openLightbox('images/DJ1.png','OtoMix &ndash; DJ Mixer Application')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          Zoom
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
         </button>
       </div>
       <div class="gallery-thumbs">
-          <img src="images/DJ1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-9')">
-          <img src="images/DJ2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-9')">
-          <img src="images/DJ3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-9')">
+        <img src="images/DJ1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-9')">
+        <img src="images/DJ2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-9')">
+        <img src="images/DJ3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-9')">
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
-        <h3>Overview</h3>
-        <p>OtoMix is a fully functional DJ mixer application developed in C++ using the JUCE framework as part of the CM2005 Object-Oriented Programming module at SIM University of London. Built on a Coursera foundation and extended with professional-grade features inspired by Serato and Rekordbox.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Key Features</h3>
-        <ul>
-          <li>Multi-deck Simultaneous Playback with separate transport, volume, and speed controls</li>
-          <li>3-Band Equaliser (EQ): real-time low/mid/high per deck via JUCE DSP processor chain</li>
-          <li>8 Hot Cue Buttons per Deck: shift-click to assign, click to jump, persisted in JSON</li>
-          <li>Live Waveform Display with mouse-wheel zoom up to 30x and hot cue markers</li>
-          <li>Crossfader slider for smooth transitions between Deck A and Deck B</li>
-          <li>Persistent Music Library with drag-and-drop, BPM display, and JSON session save</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Tools Used</h3>
-        <div class="tags-row">          <span class="tag">C++</span>          <span class="tag">JUCE Framework</span>          <span class="tag">DSP Audio Processing</span>          <span class="tag">OOP</span>          <span class="tag">JSON</span>          <span class="tag">AudioTransportSource</span></div>
-      </div>
+      <div class="modal-section"><h3>Overview</h3><p>Fully functional DJ mixer in C++ using the JUCE framework for the CM2005 OOP module at SIM UoL. Features professional-grade audio capabilities inspired by Serato and Rekordbox.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
+          <li>Multi-deck Simultaneous Playback with separate transport, volume, and speed</li>
+          <li>3-Band Equaliser per deck via JUCE DSP processor chain</li>
+          <li>8 Hot Cue Buttons per deck: shift-click assign, click to jump, JSON-persisted</li>
+          <li>Live Waveform Display with mouse-wheel zoom up to 30x</li>
+          <li>Crossfader for smooth Deck A/B transitions</li>
+          <li>Persistent Music Library with drag-and-drop, BPM display, JSON session save</li>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">C++</span><span class="tag">JUCE Framework</span><span class="tag">DSP Audio Processing</span><span class="tag">OOP</span><span class="tag">JSON</span><span class="tag">AudioTransportSource</span></div></div>
     </div>
   </div>
 </div>
-
-<!-- ========== LIGHTBOX - Fullscreen image zoom ========== -->
+<!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
   <img class="lightbox-img" id="lightbox-img" src="" alt="">
 </div>
 
-<!-- script.js handles: physics canvas, typing, modals, scroll animations, tilt, lightbox -->
 <script src="script.js" defer></script>
 </body>
 </html>
