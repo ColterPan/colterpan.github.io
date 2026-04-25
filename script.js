@@ -580,3 +580,4 @@ if (navToggle && navLinksEl) {
     link.addEventListener('click', () => navLinksEl.classList.remove('open'));
   });
 }
+ 
