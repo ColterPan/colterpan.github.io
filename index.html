@@ -122,6 +122,7 @@
     <!-- Automation & AI -->
     <span class="tag">Power Automate</span>
     <span class="tag">AI Builder</span>
+    <span class="tag">Selenium</span>
     <span class="tag">AI Prompt Engineering</span>
 
     <!-- Cloud & Systems -->
@@ -347,8 +348,23 @@
         <button class="card-btn">View Project</button>
       </div>
     </div>
-  </div>
-</section>
+    <!-- Card 10: Python Automation - LinkedIn Job Bot -->
+    <div class="card fade-in" data-category="automation python" onclick="openModal('modal-10')">
+      <div class="card-img-wrap">
+        <img src="images/Selenium1.png" alt="LinkedIn Job Auto-Finder Bot" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
+        <div class="card-overlay"><span>View Details &rarr;</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">Python &middot; Selenium &middot; Automation</div>
+        <h3 class="card-title">LinkedIn Job Auto-Finder Bot</h3>
+        <p class="card-desc">Automated job search bot using Selenium WebDriver to scrape LinkedIn for relevant roles across 19 queries, keyword-filter results, and export matched listings to CSV.</p>
+        <button class="card-btn">View Project</button>
+      </div>
+    </div>
+
+  </div><!-- END .projects-grid -->
+</section><!-- END #projects -->
 <!-- ===== EDUCATION ===== -->
 <section id="education" class="section">
   <span class="section-badge">Education</span>
@@ -710,6 +726,45 @@
     </div>
   </div>
 </div>
+
+<!-- Modal 10: LinkedIn Job Auto-Finder Bot -->
+<div class="modal-backdrop" id="modal-10" onclick="closeModalOnBackdrop(event,'modal-10')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-10')">&#x2715;</button>
+    <div class="modal-header">
+      <div class="modal-meta">Python &middot; Selenium &middot; WebDriver &middot; Automation</div>
+      <h2 class="modal-title">LinkedIn Job Auto-Finder Bot</h2>
+    </div>
+    <div class="gallery">
+      <div class="gallery-main" id="gallery-main-10">
+        <img src="images/Selenium1.png" alt="LinkedIn Job Auto-Finder Bot" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Selenium1.png</code></p></div>
+        <button class="zoom-btn" onclick="openLightbox('images/Selenium1.png','LinkedIn Job Auto-Finder Bot')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom
+        </button>
+      </div>
+      <div class="gallery-thumbs">
+        <img src="images/Selenium1.png" alt="thumb1" class="thumb active" onclick="swapGallery(this,'gallery-main-10')">
+        <img src="images/Selenium2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-10')">
+        <img src="images/Selenium3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-10')">
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section"><h3>Overview</h3><p>Built a fully automated LinkedIn job search bot using Python and Selenium WebDriver. The bot logs into LinkedIn, searches across 19 targeted job queries in Singapore, scrapes and keyword-filters job listings, and exports all matched results to a structured CSV file &mdash; eliminating hours of manual job hunting.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul>
+          <li>Automated LinkedIn login and multi-query job search across 19 role categories</li>
+          <li>Smart keyword filtering across 60+ role-relevant terms (audit, data, automation, BI, SQL, Python, etc.)</li>
+          <li>Deduplication engine using job IDs to prevent duplicate entries across queries</li>
+          <li>Scroll-based dynamic content loading to capture all paginated job cards</li>
+          <li>Extracts job title, company, location, and direct LinkedIn job link per listing</li>
+          <li>Exports all matched jobs to <code>jobs.csv</code> for easy review and tracking</li>
+          <li>Covers up to 10 pages per query &mdash; up to 250 listings per search term</li>
+      </ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">ChromeDriver</span><span class="tag">WebDriverWait</span><span class="tag">CSV</span><span class="tag">Automation</span></div></div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
