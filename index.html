@@ -179,6 +179,22 @@
       </div>
     </div>
 
+
+    <!-- Card: Endpoint Automation & Intelligence Platform -->
+    <div class="card fade-in" data-category="automation python" onclick="openModal('modal-12')">
+      <div class="card-img-wrap">
+        <img src="images/Endpoint4.png" alt="Endpoint Automation Platform" class="card-img" onerror="this.parentElement.classList.add('no-img')">
+        <div class="card-img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Add Screenshot</span></div>
+        <div class="card-overlay"><span>View Details &rarr;</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">Python &middot; FastAPI &middot; Streamlit &middot; PowerShell</div>
+        <h3 class="card-title">Endpoint Automation &amp; Intelligence Platform</h3>
+        <p class="card-desc">Full-stack endpoint compliance monitoring platform with PowerShell telemetry collection, FastAPI rule-based compliance engine, SQLite audit trail, and live Streamlit dashboard.</p>
+        <button class="card-btn">View Project</button>
+      </div>
+    </div>
+
     <!-- Card: AI Duplicate Claims Detection -->
     <div class="card fade-in" data-category="automation" onclick="openModal('modal-1')">
       <div class="card-img-wrap">
@@ -675,6 +691,35 @@
       <div class="modal-section"><h3>Overview</h3><p>Designed, developed, and deployed a complete multi-page business website for Elyco Technology International &mdash; a Singapore-registered sole proprietorship and authorised distributor of EBELCO EM locks, Meanwell power supplies, and RFID solutions. The site is built from scratch using pure HTML, CSS, and JavaScript with no frameworks, and is hosted live on Cloudflare Pages with a custom domain (elycotechnology.com). Features a modern responsive layout, product catalog, floating contact buttons, partner marquee banner, contact form with mailto integration, and full SEO optimisation including Google Search Console indexing.</p></div>
       <div class="modal-section"><h3>Key Features</h3><ul><li>Multi-page responsive website (Home, Products, Contact) with mobile-first design</li><li>Product catalog with feature cards covering power supplies, EM locks, exit devices, RFID, brackets &amp; sensors</li><li>Floating action buttons (FAB) for WhatsApp, Email, and Call &mdash; accessible from every page</li><li>Scrolling partner marquee banner showcasing authorised brand logos (EBELCO, Meanwell, RFID)</li><li>Contact form with dynamic mailto handler pre-filling subject, body, and CC fields</li><li>SEO-optimised with meta descriptions, sitemap.xml, and Google Search Console indexing</li><li>Deployed on Cloudflare Pages with custom domain and DNS configuration</li><li>Clean, professional UI using Inter font family, navy/white colour scheme, and CSS custom properties</li></ul></div>
       <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Cloudflare Pages</span><span class="tag">Google Search Console</span><span class="tag">SEO</span><span class="tag">Responsive Design</span><span class="tag">DNS</span></div></div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ===== Modal 12: Endpoint Automation & Intelligence Platform ===== -->
+<div class="modal-backdrop" id="modal-12" onclick="closeModalOnBackdrop(event,'modal-12')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-12')">&#x2715;</button>
+    <div class="modal-header"><div class="modal-meta">Python &middot; FastAPI &middot; Streamlit &middot; PowerShell &middot; SQLite</div><h2 class="modal-title">Endpoint Automation &amp; Intelligence Platform</h2></div>
+    <div class="gallery">
+      <div class="gallery-main" id="gallery-main-12">
+        <img src="images/Endpoint4.png" alt="Endpoint Automation &amp; Intelligence Platform" class="gallery-img" onerror="this.parentElement.classList.add('no-img-gallery')">
+        <div class="gallery-placeholder"><p>&#128248; Add screenshot</p><p class="hint">Upload <code>images/Endpoint4.png</code></p></div>
+        <button class="zoom-btn" onclick="openLightbox('images/Endpoint4.png','Endpoint Automation &amp; Intelligence Platform')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Zoom</button>
+      </div>
+      <div class="gallery-thumbs">
+        <img src="images/Endpoint1.png" alt="thumb1" class="thumb" onclick="swapGallery(this,'gallery-main-12')">
+        <img src="images/Endpoint2.png" alt="thumb2" class="thumb" onclick="swapGallery(this,'gallery-main-12')">
+        <img src="images/Endpoint3.png" alt="thumb3" class="thumb" onclick="swapGallery(this,'gallery-main-12')">
+        <img src="images/Endpoint4.png" alt="thumb4" class="thumb active" onclick="swapGallery(this,'gallery-main-12')">
+        <img src="images/Endpoint5.png" alt="thumb5" class="thumb" onclick="swapGallery(this,'gallery-main-12')">
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section"><h3>Overview</h3><p>Built a full-stack endpoint compliance monitoring platform that collects real-time telemetry from Windows endpoints via PowerShell scripts, processes it through a FastAPI backend with a rule-based compliance engine, logs events to SQLite with full audit trail, and visualises device health, compliance status, and detected issues on a live Streamlit dashboard &mdash; with optional Jira ITSM ticket creation for non-compliant devices.</p></div>
+      <div class="modal-section"><h3>Key Features</h3><ul><li>PowerShell telemetry collector gathering OS info, patch status, Windows Defender, Firewall, and BitLocker state from endpoints</li><li>FastAPI backend with RESTful API endpoints for telemetry ingestion, device listing, event querying, and remediation actions</li><li>Rule-based compliance engine evaluating device health scores (0&ndash;100) with COMPLIANT, AT_RISK, and NON_COMPLIANT classifications</li><li>SQLite event logging with severity levels (LOW, MEDIUM, HIGH, CRITICAL) and full audit trail for every detected issue</li><li>Real-time Streamlit dashboard displaying device fleet overview, compliance breakdown chart, health scores, and per-device drill-down with full JSON telemetry</li><li>Detected events table with severity codes (BITLOCKER_UNKNOWN, PATCH_UNKNOWN, BAD_TIMESTAMP) and one-click remediation recommendations</li><li>Optional Jira ITSM integration for automatic ticket creation when critical non-compliance is detected</li><li>CORS-enabled API with Swagger/OpenAPI docs at /docs for easy testing and integration</li></ul></div>
+      <div class="modal-section"><h3>Tools Used</h3><div class="tags-row"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">PowerShell</span><span class="tag">SQLite</span><span class="tag">Pydantic</span><span class="tag">Uvicorn</span><span class="tag">Jira API</span><span class="tag">Pandas</span><span class="tag">REST API</span></div></div>
     </div>
   </div>
 </div>
