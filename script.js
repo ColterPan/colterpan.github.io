@@ -205,8 +205,10 @@ window.addEventListener('load',   () => { resizeCanvas(); initBalls(); animateBa
    Cycles through role titles in the hero with typewriter effect
    ============================================================ */
 const roles = [
-  'Data Analyst',
-  'Automation Specialist'
+  'Automation & Data Analyst',
+  'Power Platform Developer',
+  'Generative AI Builder',
+  'Full-Stack Developer'
 ];
 let roleIndex = 0, charIdx = 0, isDeleting = false;
 const typedEl = document.getElementById('typed-role');
@@ -232,10 +234,20 @@ setTimeout(typeRole, 1500);
    ============================================================ */
 const filterBtns  = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.card');
+const projectsGrid = document.querySelector('.projects-grid');
+const moreBtn = document.getElementById('projects-more-btn');
+let projectsExpanded = false;
+if (moreBtn) moreBtn.addEventListener('click', () => {
+  projectsExpanded = true;
+  projectsGrid.classList.remove('collapsed');
+  moreBtn.parentElement.style.display = 'none';
+});
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     // Update active button
+    if (projectsGrid) projectsGrid.classList.toggle('collapsed', btn.getAttribute('data-filter') === 'all' && !projectsExpanded);
+    if (moreBtn) moreBtn.parentElement.style.display = (btn.getAttribute('data-filter') === 'all' && !projectsExpanded) ? '' : 'none';
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
@@ -244,7 +256,7 @@ filterBtns.forEach(btn => {
     // Show/hide cards with smooth transition
     projectCards.forEach(card => {
       const cat = card.getAttribute('data-category') || '';
-      if (filter === 'all' || cat === filter) {
+      if (filter === 'all' || cat.split(/\s+/).includes(filter)) {
         card.classList.remove('hidden');
         // Small timeout so CSS transition plays smoothly
         setTimeout(() => card.classList.remove('hiding'), 10);
@@ -276,9 +288,10 @@ function initGlobe() {
 
   // Skills to display on the globe
   const skills = [
-    'SQL','Python','Power BI','DAX','Power Automate',
-    'AI Builder','SharePoint','Excel','Tableau','AWS',
-    'JavaScript','C++','Node.js','Flask','MySQL','JSON'
+    'Power Automate','Power Apps','Copilot Studio','Power BI','DAX','SharePoint',
+    'Python','SQL','TypeScript','React','FastAPI','Claude API',
+    'OpenAI','Ollama','YOLOv8','OpenCV','Playwright','Docker',
+    'PostgreSQL','GitHub Actions','Tableau','Excel','C#','Node.js'
   ];
 
   // Distribute points on sphere using fibonacci spiral (even distribution)

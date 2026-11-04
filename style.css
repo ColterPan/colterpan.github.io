@@ -577,3 +577,19 @@ footer span { color: var(--accent3); }
   .filter-tabs { gap: 0.4rem; }
   .filter-btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
 }
+
+/* ============================================================
+   ADDITIONS: grouped skills, modal links, contained gallery,
+   show-more for projects
+   ============================================================ */
+.skill-group { margin-bottom: 1.25rem; }
+.skill-group-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.6rem; }
+.modal-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+.modal-link { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid var(--border); color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: var(--transition); }
+.modal-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.modal-link.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: #fff; }
+.modal-link.primary:hover { color: #fff; box-shadow: 0 0 20px rgba(0,212,255,0.45); }
+.gallery-main.contain .gallery-img { object-fit: contain; }
+.projects-grid.collapsed .card.extra { display: none; }
+.projects-more { text-align: center; margin-top: 2rem; }
+.projects-more .btn-secondary { cursor: pointer; font: inherit; }
